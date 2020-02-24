@@ -12,8 +12,12 @@ public class WebController {
 	@GetMapping("/")
 	public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         RestTemplate restTemplate = new RestTemplate();
-		String s = restTemplate.getForObject("https://opensky-network.org/api/flights/aircraft?icao24=3c675a&begin=1517184000&end=1517270400", String.class);
-		model.addAttribute("name", s);
+		Flight[] s = restTemplate.getForObject("https://opensky-network.org/api/flights/departure?airport=EGLL&begin=1582485409&end=1582555409", Flight[].class);
+		String data = "";
+		for(int i = 0; i < s.length; i++){
+			data += "\n	" + s[i].toString() ; 
+		}
+		model.addAttribute("name", data);
 		return "index";
 	}
 

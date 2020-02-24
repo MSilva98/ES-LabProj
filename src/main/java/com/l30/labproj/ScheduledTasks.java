@@ -20,7 +20,9 @@ public class ScheduledTasks {
 	public void reportCurrentTime() {
         log.info("The time is now {}", dateFormat.format(new Date()));
         RestTemplate restTemplate = new RestTemplate();
-		String s = restTemplate.getForObject("https://opensky-network.org/api/flights/aircraft?icao24=3c675a&begin=1517184000&end=1517270400", String.class);
-		log.info(s);
+		Flight[] s = restTemplate.getForObject("https://opensky-network.org/api/flights/departure?airport=EGLL&begin=1582485409&end=1582555409", Flight[].class);
+		for(int i = 0; i < s.length; i++){
+			log.info(s[i].toString());
+		}
 	}
 }

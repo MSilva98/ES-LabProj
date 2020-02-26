@@ -1,21 +1,42 @@
 package com.l30.labproj;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter @Setter
-
+@Entity
 public class Flight {
 
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private Long id;
   private String estDepartureAirport;
   private String estArrivalAirport;
   private String firstSeen;
   private String lastSeen;
   
-  public Flight(){
+  protected Flight(){}
 
+  public Flight(String estDepartureAirport, String estArrivalAirport,String firstSeen, String lastSeen ){
+    this.estDepartureAirport = estDepartureAirport;
+    this.estArrivalAirport = estArrivalAirport;
+    this.firstSeen = firstSeen;
+    this.lastSeen = lastSeen;
+  }
+
+  // public Flight(){
+
+  // }
+
+  public Long getId() {
+    return id;
   }
 
   public String getestDepartureAirport(){

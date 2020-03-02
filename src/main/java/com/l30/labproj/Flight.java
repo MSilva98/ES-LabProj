@@ -1,5 +1,9 @@
 package com.l30.labproj;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -56,7 +60,9 @@ public class Flight {
   }
 
   public String getfirstSeen(){
-    return this.firstSeen;
+    Date d = new Date(Long.parseLong(this.firstSeen)*1000);
+    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:MM");
+    return sf.format(d);
   }
 
   public void setfirstSeen(String firstSeen){
@@ -64,7 +70,9 @@ public class Flight {
   }
 
   public String getlastSeen(){
-    return this.lastSeen;
+    Date d = new Date(Long.parseLong(this.lastSeen)*1000);
+    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:MM");
+    return sf.format(d);
   }
 
   public void setlastSeen(String lastSeen){
@@ -80,6 +88,6 @@ public class Flight {
   @Override
   public String toString() {
 
-    return "Flight from " + this.estDepartureAirport + " at " + this.firstSeen + " to " + this.estArrivalAirport + " at " + this.lastSeen;
+    return "Flight from " + this.estDepartureAirport + " at " + getfirstSeen() + " to " + this.estArrivalAirport + " at " + getlastSeen();
   }
 }

@@ -29,12 +29,12 @@ public class WebController {
 		// repo.findByEstDepartureAirport("EGLL").forEach(f -> {
 		// 	data += "\n	" + f.toString(); 
 		//   });
-		List<Flight> f = repo.findByEstDepartureAirport("EGLL");
-		log.info("Reloading web page");
-		for (int i = 0; i < f.size(); i++) {
-			data += "\n	" + f.toString();
-		}
-		model.addAttribute("name", data);
+		// List<Flight> f = repo.findByEstDepartureAirport("EGLL");
+		// log.info("Reloading web page");
+		// for (int i = 0; i < f.size(); i++) {
+		// 	data += "\n	" + f.toString();
+		// }
+		model.addAttribute("flights", repo.findAll());
 		return "index";
 	}	
 

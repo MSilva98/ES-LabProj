@@ -3,8 +3,49 @@
 <head>
     <title>OpenSky</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
 </head>
 <body>
-    <p th:text="${name}" />
+    <!-- <p th:text="${name}" /> -->
+    <div th:switch="${flights}">
+        <h2 th:case="null">No users yet!</h2>
+            <div th:case="*">
+                <h2>Flights</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>Departure Hour</th>
+                            <th>To</th>
+                            <th>Arrial Hour</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="flight : ${flights}">
+                        <td th:text="${flight.getestDepartureAirport()}"></td>
+                        <td th:text="${flight.getfirstSeen()}"></td>
+                        <td th:text="${flight.getestArrivalAirport()}"></td>
+                        <td th:text="${flight.getlastSeen()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>      
 </body>
 </html>

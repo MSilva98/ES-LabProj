@@ -14,7 +14,7 @@ import org.springframework.kafka.core.*;
 @Configuration
 public class KafkaConsumerConfig {
 
-    @Value(value = "192.168.54.146:9092")
+    @Value(value = "192.168.1.13:9092")
     private String bootstrapAddress;
     private String groupId;
  

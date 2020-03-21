@@ -1,0 +1,15 @@
+Docker steps
+
+Run spotify/kafka
+docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=xxx.xxx.xxx.xxx --env ADVERTISED_PORT=9092 spotify/kafka
+
+
+Run jar image deployed in docker
+docker run -p 8082:8082 -t labproj
+
+
+
+How to deploy image!!!!!
+
+Run in the root (ES-LabProj)
+docker build -t labproj .

@@ -15,7 +15,7 @@ import org.springframework.kafka.core.KafkaAdmin;
 @Configuration
 public class KafkaTopicConfig {
 
-    @Value(value = "192.168.54.146:9092")
+    @Value(value = "192.168.1.13:9092")
     private String bootstrapAddress;
 
     @Bean

@@ -43,13 +43,10 @@ public class ScheduledTasks {
 		Date d = new Date();
 		long end = d.getTime()/1000;
 		long begin = end-(int)(1.5*24*60*60);
-		// log.info("begin: {}, end: {}", begin, end);
 		RestTemplate restTemplate = new RestTemplate();
-		// Flight[] f = restTemplate.getForObject("https://opensky-network.org/api/flights/departure?airport=EGLL&begin=1582485409&end=1582555409", Flight[].class);
 		Flight[] f = restTemplate.getForObject("https://opensky-network.org/api/flights/departure?airport=EGLL&begin=" + begin + "&end=" + end, Flight[].class);
 		sendMessage("Number of flights : " + f.length);
 		for(int i = 0; i < f.length; i++){
-			// log.info(s[i].toString());
 			repo.save( f[i]);
 		}
 	}

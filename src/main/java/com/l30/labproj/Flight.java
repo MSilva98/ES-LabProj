@@ -34,9 +34,6 @@ public class Flight {
     this.lastSeen = lastSeen;
   }
 
-  // public Flight(){
-
-  // }
 
   public Long getId() {
     return id;
@@ -77,12 +74,6 @@ public class Flight {
   public void setlastSeen(String lastSeen){
     this.lastSeen = lastSeen;
   }
-  // public Flight(String estDepartureAirport, String estArrivalAirport, String firstSeen, String lastSeen) {
-  //   this.estDepartureAirport = estDepartureAirport;
-  //   this.estArrivalAirport = estArrivalAirport;
-  //   this.firstSeen = firstSeen;
-  //   this.lastSeen = lastSeen;
-  // }
 
   @Override
   public String toString() {

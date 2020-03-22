@@ -1,7 +1,6 @@
 package com.l30.labproj;
 
 import java.util.*;
-
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
